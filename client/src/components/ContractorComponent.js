@@ -29,20 +29,19 @@ export const ContractorComponent = ({url}) => {
    }
    const container ={
       'display': 'flex',
-      'justifyContent': 'center'
+      'justifyContent': 'center',
    }
+   
    const card = {
-      
-         'position': 'relative',
-         'width': '400px',
-         'height': '300px',
-         'backgroundColor': '#fff',
-         'boxShadow': '0 50px 50px rgba(0, 0, 0, 0.2)',
-         'padding': '8px',
-         'overflow': 'hidden',
-         'transition': 'height 0.5s ease-in-out',
-      
+      'display': 'flex',
+      'justifyContent': 'center',
+      'width': '300px',
+      'height': '300px',
+      'boxShadow': '0 50px 50px rgba(0, 0, 0, 0.2)',
+      'overflow': 'hidden',
+      'transition': 'height 0.5s ease-in-out', 
    }
+ 
    const cardContent ={
       'display': 'flex',
       'alignItems': 'center',
@@ -67,53 +66,50 @@ export const ContractorComponent = ({url}) => {
       'objectFit': 'cover',
    }
    const name ={
-      'fontSize': '1.2em',
-      'fontWeight': '400',
-      'color': 'black',
-      'marginLeft': '30px'
+      'fontSize': '1.4em',
+      'color': '#f1356d',
+      'marginBottom': '8px',
+      'padding': '10px 16px',
    }
    const details = {
-      'fontSize': '0.7em',
+      'fontSize': '1em',
       'fontWeight': '400',
       'color': '#999',
-      'marginLeft': '30px'
    }
    const container_button = {
       'display': 'flex',
       'justifyContent': 'space-between'
    }
    const button = {
-      'display':'inlineBlock',
-      'padding':'0.3em 1.2em',
-      'margin':'20px 0.3em 0.3em 0',
-      'borderRadius':'2em',
-      'boxSizing': 'border-box',
-      'fontWeight':'300',
-      'color':'#FFFFFF',
-      'backgroundColor':'#4eb5f1',
-      'textAlign':'center',
-      'transition': 'all 0.2s', 
+      'background': '#f1356d',
+      'color': '#fff',
+      'border': '0',
+      'padding': '8px',
+      'borderRadius': '8px',
+      'cursor': 'pointer',
+      'marginTop': '3em',
+      'margin': '10px'
    }
    return (
-      <div style={container}>
-         <div style={card}>
-	         <div style={cardContent}>
-		         <div style={divImg}>
-			         <img style={img} src="https://avatars.githubusercontent.com/u/58844494?v=4" alt="Avatar" />
-		         </div>
-               <div>
-                  <div>
-		               <h2><span style={name}>{data.firstName} {data.lastName}</span></h2>
-                  </div>
-		            <h2><span style={details}>{data.email}</span></h2>
-		            <h2><span style={details}>{data.phoneNumber}</span></h2>
-               </div>
-               <div style={container_button}>
-                  <Link to={`/contractors/edit/${id}`}><button style={button}>Edit</button></Link>
-                  <button style={button} onClick={ handleDeleteContractor }>Delete</button>
-               </div>
-	         </div>
-	      </div>
+<div style={container}>
+      <div style={card}>
+	      <div style={cardContent}>
+		      <div style={divImg}>
+			      <img style={img} src={`${data.image}`} alt="Avatar" />
+		      </div>
+            <div>
+		         <h2 style={name}>{data.firstName} {data.lastName}</h2>
+            </div>
+            <div>
+               <h2 style={details}>{data.email}</h2>
+               <h2 style={details}>{data.phoneNumber}</h2>
+            </div>
+            <div style={container_button}>
+               <Link to={`/contractors/edit/${id}`}><button style={button}>Edit</button></Link>
+               <button style={button} onClick={ handleDeleteContractor }>Delete</button>
+            </div>
+         </div>
       </div>
+   </div>
    )
 }

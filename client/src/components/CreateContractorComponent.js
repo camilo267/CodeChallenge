@@ -1,7 +1,7 @@
 import { useState } from "react"
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import '../App.css' 
+// import '../App.css' 
 
 export const CreateContractorComponent = ({url}) => {
 
@@ -53,80 +53,67 @@ export const CreateContractorComponent = ({url}) => {
       'boxSizing': 'border-box',
       'boxShadow': '0 15px 25px rgba(0,0,0,.6)',
       'borderRadius': '10px',
+      'backgroundColor': 'white'
    }
    const label = {
       'position': 'relative',
       'padding': '0px 0',
-      // 'margin': '0px',
       'fontSize': '16px',
-      'color': '#fff',
+      'color': '#f1356d',
       'transition': '.5s',
    }
    const labelBox ={
       'position': 'relative'
    }
    const title = {
-      'margin': '0 0 30px',
-      'padding': '0',
-      'color': '#fff',
-      'textAlign': 'center',
+      'fontSize': '20px',
+      'color': '#f1356d',
+      'marginBottom': '8px',
+      'padding': '10px 16px',
    }
    const input = {
       'width': '100%',
       'padding': '10px 0',
       'fontSize': '16px',
-      'color': '#fff',
+      'color': 'black',
       'marginBottom': '30px',
       'border': 'none',
-      'borderBottom': '1px solid #fff',
+      'borderBottom': '1px solid #f1356d',
       'outline': 'none',
       'background': 'transparent',
+   }
+   const inputFile = {
+      'width': '100%',
+      'padding': '10px 0',
+      'background': 'transparent',
+      'marginLeft': '70px',
+      'marginTop': '10px'
    }
 
    const containerImage ={
       'position': 'relative'
    }
-   // const labelImage = {
-   //    'display': 'inline-block',
-   //    'padding': '8px 12px', 
-   //    'cursor': 'pointer',
-   //    'borderRadius': '4px',
-   //    'backgroundColor': '#9c27b0',
-   //    'fontSize': '16px',
-   //    'color': '#fff',
-   // }
-   // const inputFile = {
-   //    'position': 'absolute',
-   //    'zIndex': '-1',
-   //    'top': '6px',
-   //    'left': '0',
-   //    'fontSize': '15px',
-   //    'color': 'rgb(153,153,153)',
-   // }
   
    const button = {
-      'display':'inlineBlock',
-      'padding':'0.3em 1.2em',
-      'margin':'0 0.3em 0.3em 0',
-      'borderRadius':'2em',
-      'boxSizing': 'border-box',
-      'fontWeight':'300',
-      'color':'#FFFFFF',
-      'backgroundColor':'#4eb5f1',
-      'textAlign':'center',
-      'transition': 'all 0.2s',
+      'background': '#f1356d',
+      'color': '#fff',
+      'border': '0',
+      'padding': '8px',
+      'borderRadius': '8px',
+      'cursor': 'pointer',
+      'marginTop': '5px'
    }
 
-   
    return(
       <div style={container}>
-         <h2 style={title}>
+         <h2 style={title} className="create-contractor-title">
             Create Contractor
          </h2>
          <form onSubmit={ handleSubmit }>
             <div style={labelBox}>
                <label style={label}>First Name:</label>
                <input
+                  id='first-name' //2e2 test purposes
                   type='text'
                   name="firstName"
                   value={ firstName }
@@ -138,6 +125,7 @@ export const CreateContractorComponent = ({url}) => {
             <div>
                <label style={label}>Last Name:</label>
                <input
+                  id='last-name'
                   type='text'
                   name="lastName"
                   value={ lastName }
@@ -150,6 +138,7 @@ export const CreateContractorComponent = ({url}) => {
             <div>
                <label style={label}>Email</label>
                <input
+                  id='email'
                   type='text'
                   name="email"
                   value={ email }
@@ -161,7 +150,8 @@ export const CreateContractorComponent = ({url}) => {
             <div>
                <label style={label}>Phone Number</label>
                <input
-                  type='number'
+                  id='phone-number'
+                  type="number"
                   name="phoneNumber"
                   value={ phoneNumber }
                   onChange={ handleInputChange }
@@ -170,19 +160,18 @@ export const CreateContractorComponent = ({url}) => {
                />
             </div>
             <div style={containerImage}>
-               <label className='labelImage'>Image</label>
+               <label style={label} >Image</label>
                <input
-                  type='file'
+                  id='image'
+                  type="text"
                   name="image"
                   value={ image }
                   onChange={ handleInputChange }
                   required
-                  className="input"
-                  // style={inputFile}
+                  style={input}
                />
-                 <span className="file-custom"></span>
             </div>
-            <button type="submit" style={button} >Add Contractor</button>
+            <button type="submit" style={button} id="add-new-contractor">Add Contractor</button>
          </form>
       </div>
    )

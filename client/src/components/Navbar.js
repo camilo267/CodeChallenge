@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
 
    const nav = { 
-      'background': '#0082e6',
+      'background':'#0D1821',
       'height': '60px',
       'width': '100%',
       'marginBottom': '20px'
